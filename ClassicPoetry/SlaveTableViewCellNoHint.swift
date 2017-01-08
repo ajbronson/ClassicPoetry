@@ -1,0 +1,63 @@
+//
+//  SlaveTableViewCellNoHint.swift
+//  ClassicPoetry
+//
+//  Created by AJ Bronson on 1/7/17.
+//  Copyright © 2017 AJ Bronson. All rights reserved.
+//
+
+import UIKit
+
+class SlaveTableViewCellNoHint: UITableViewCell {
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var starButton: UIButton!
+    
+    var delegate: ChangeStar?
+    var book: Book?
+    var isInStarMode = false
+    
+    func updateWith(book: Book, isInStarMode: Bool) {
+        self.titleLabel.text = book.reference
+        self.book = book
+        self.isInStarMode = isInStarMode
+        
+        if let blue = book.blueStar, blue {
+            starButton.setImage(UIImage(named: "BlueStar"), for: .normal)
+        } else if let green = book.greenStar, green {
+            starButton.setImage(UIImage(named: "GreenStar"), for: .normal)
+        } else if let yellow = book.yellowStar, yellow {
+            starButton.setImage(UIImage(named: "YellowStar"), for: .normal)
+        } else {
+            starButton.setImage(UIImage(named: "WhiteStar"), for: .normal)
+        }
+    }
+    
+    @IBAction func starButtonTapped(_ sender: UIButton) {
+        if let book = book {
+            if isInStarMode {
+                FileController.shared.updateBookStar(book: book, hasYellowStar: 0, hasBlueStar: 0, hasGreenStar: 0)
+                book.blueStar = false
+                book.greenStar = false
+                book.yellowStar = false
+            } else {
+                if let green = book.greenStar, green {
+                    FileController.shared.updateBookStar(book: book, hasYellowStar: 0, hasBlueStar: 1, hasGreenStar: 0)
+                    book.blueStar = true
+                    book.greenStar = false
+                } else if let blue = book.blueStar, blue {
+                    FileController.shared.updateBookStar(book: book, hasYellowStar: 1, hasBlueStar: 0, hasGreenStar: 0)
+                    book.yellowStar = true
+                    book.blueStar = false
+                } else if let yellow = book.yellowStar, yellow {
+                    FileController.shared.updateBookStar(book: book, hasYellowStar: 0, hasBlueStar: 0, hasGreenStar: 0)
+                    book.yellowStar = false
+                } else {
+                    FileController.shared.updateBookStar(book: book, hasYellowStar: 0, hasBlueStar: 0, hasGreenStar: 1)
+                    book.greenStar = true
+                }
+            }
+        }
+        delegate?.shouldChangeStar(sender: self, starMode: isInStarMode)
+    }
+}

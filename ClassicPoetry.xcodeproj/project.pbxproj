@@ -7,13 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		213F6C341E21F994007A424A /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F6C331E21F994007A424A /* StringHelper.swift */; };
+		213F6C361E21F9AB007A424A /* FileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F6C351E21F9AB007A424A /* FileController.swift */; };
+		213F6C381E21F9C3007A424A /* Volume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F6C371E21F9C3007A424A /* Volume.swift */; };
+		213F6C3A1E21F9C9007A424A /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F6C391E21F9C9007A424A /* Book.swift */; };
+		213F6C3C1E21F9CD007A424A /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F6C3B1E21F9CD007A424A /* File.swift */; };
+		213F6C3E1E21FA1D007A424A /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F6C3D1E21FA1D007A424A /* MasterTableViewController.swift */; };
+		213F6C401E21FA28007A424A /* SlaveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F6C3F1E21FA28007A424A /* SlaveTableViewController.swift */; };
+		213F6C421E21FA34007A424A /* SlaveCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F6C411E21FA34007A424A /* SlaveCollectionViewController.swift */; };
+		213F6C441E21FA3E007A424A /* TextTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F6C431E21FA3E007A424A /* TextTabBar.swift */; };
+		213F6C461E21FA4B007A424A /* FullTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F6C451E21FA4B007A424A /* FullTextViewController.swift */; };
+		213F6C481E21FA53007A424A /* FirstLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F6C471E21FA53007A424A /* FirstLetterViewController.swift */; };
+		213F6C4A1E21FA65007A424A /* RandomWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F6C491E21FA65007A424A /* RandomWordViewController.swift */; };
+		213F6C4C1E21FA70007A424A /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F6C4B1E21FA70007A424A /* SectionViewController.swift */; };
+		213F6C4E1E21FA87007A424A /* HelpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F6C4D1E21FA87007A424A /* HelpTableViewController.swift */; };
+		213F6C501E21FA92007A424A /* SlaveTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F6C4F1E21FA92007A424A /* SlaveTableviewCell.swift */; };
+		213F6C521E21FAA8007A424A /* SlaveTableViewCellNoHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F6C511E21FAA8007A424A /* SlaveTableViewCellNoHint.swift */; };
+		213F6C541E21FAB9007A424A /* SlaveCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F6C531E21FAB9007A424A /* SlaveCollectionViewCell.swift */; };
+		213F6C561E21FAC6007A424A /* LargeSlaveCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F6C551E21FAC6007A424A /* LargeSlaveCollectionViewCell.swift */; };
+		213F6C581E222A2C007A424A /* poemDB_v2.0.sql in Resources */ = {isa = PBXBuildFile; fileRef = 213F6C571E222A2C007A424A /* poemDB_v2.0.sql */; };
+		213F6C5A1E22CCEA007A424A /* SlaveCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F6C591E22CCEA007A424A /* SlaveCollectionHeaderView.swift */; };
 		219F6DB51E21F25F0051B16C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219F6DB41E21F25F0051B16C /* AppDelegate.swift */; };
-		219F6DB71E21F25F0051B16C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219F6DB61E21F25F0051B16C /* ViewController.swift */; };
 		219F6DBA1E21F25F0051B16C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 219F6DB81E21F25F0051B16C /* Main.storyboard */; };
 		219F6DBC1E21F25F0051B16C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219F6DBB1E21F25F0051B16C /* Assets.xcassets */; };
 		219F6DBF1E21F25F0051B16C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 219F6DBD1E21F25F0051B16C /* LaunchScreen.storyboard */; };
 		219F6DCA1E21F25F0051B16C /* ClassicPoetryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219F6DC91E21F25F0051B16C /* ClassicPoetryTests.swift */; };
 		219F6DD51E21F25F0051B16C /* ClassicPoetryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219F6DD41E21F25F0051B16C /* ClassicPoetryUITests.swift */; };
+		E5ACDBEB1CAC10B564A70F6D /* Pods_ClassicPoetry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95AEA0EDD443A53C446C2DC4 /* Pods_ClassicPoetry.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +54,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06DB3859381F9D26FCDF8F29 /* Pods-ClassicPoetry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassicPoetry.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassicPoetry/Pods-ClassicPoetry.debug.xcconfig"; sourceTree = "<group>"; };
+		213F6C331E21F994007A424A /* StringHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
+		213F6C351E21F9AB007A424A /* FileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileController.swift; sourceTree = "<group>"; };
+		213F6C371E21F9C3007A424A /* Volume.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Volume.swift; sourceTree = "<group>"; };
+		213F6C391E21F9C9007A424A /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		213F6C3B1E21F9CD007A424A /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		213F6C3D1E21FA1D007A424A /* MasterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTableViewController.swift; sourceTree = "<group>"; };
+		213F6C3F1E21FA28007A424A /* SlaveTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlaveTableViewController.swift; sourceTree = "<group>"; };
+		213F6C411E21FA34007A424A /* SlaveCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlaveCollectionViewController.swift; sourceTree = "<group>"; };
+		213F6C431E21FA3E007A424A /* TextTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTabBar.swift; sourceTree = "<group>"; };
+		213F6C451E21FA4B007A424A /* FullTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullTextViewController.swift; sourceTree = "<group>"; };
+		213F6C471E21FA53007A424A /* FirstLetterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstLetterViewController.swift; sourceTree = "<group>"; };
+		213F6C491E21FA65007A424A /* RandomWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomWordViewController.swift; sourceTree = "<group>"; };
+		213F6C4B1E21FA70007A424A /* SectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionViewController.swift; sourceTree = "<group>"; };
+		213F6C4D1E21FA87007A424A /* HelpTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpTableViewController.swift; sourceTree = "<group>"; };
+		213F6C4F1E21FA92007A424A /* SlaveTableviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlaveTableviewCell.swift; sourceTree = "<group>"; };
+		213F6C511E21FAA8007A424A /* SlaveTableViewCellNoHint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlaveTableViewCellNoHint.swift; sourceTree = "<group>"; };
+		213F6C531E21FAB9007A424A /* SlaveCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlaveCollectionViewCell.swift; sourceTree = "<group>"; };
+		213F6C551E21FAC6007A424A /* LargeSlaveCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeSlaveCollectionViewCell.swift; sourceTree = "<group>"; };
+		213F6C571E222A2C007A424A /* poemDB_v2.0.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = poemDB_v2.0.sql; sourceTree = "<group>"; };
+		213F6C591E22CCEA007A424A /* SlaveCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlaveCollectionHeaderView.swift; sourceTree = "<group>"; };
 		219F6DB11E21F25F0051B16C /* ClassicPoetry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassicPoetry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		219F6DB41E21F25F0051B16C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		219F6DB61E21F25F0051B16C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		219F6DB91E21F25F0051B16C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		219F6DBB1E21F25F0051B16C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		219F6DBE1E21F25F0051B16C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +87,8 @@
 		219F6DD01E21F25F0051B16C /* ClassicPoetryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassicPoetryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		219F6DD41E21F25F0051B16C /* ClassicPoetryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicPoetryUITests.swift; sourceTree = "<group>"; };
 		219F6DD61E21F25F0051B16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95AEA0EDD443A53C446C2DC4 /* Pods_ClassicPoetry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassicPoetry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D36E354BB6576C86D523885E /* Pods-ClassicPoetry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassicPoetry.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassicPoetry/Pods-ClassicPoetry.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5ACDBEB1CAC10B564A70F6D /* Pods_ClassicPoetry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +117,88 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		213F6C2B1E21F94E007A424A /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				219F6DB41E21F25F0051B16C /* AppDelegate.swift */,
+				219F6DBB1E21F25F0051B16C /* Assets.xcassets */,
+				219F6DC01E21F25F0051B16C /* Info.plist */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		213F6C2C1E21F954007A424A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				219F6DB81E21F25F0051B16C /* Main.storyboard */,
+				219F6DBD1E21F25F0051B16C /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		213F6C2D1E21F95A007A424A /* CustomTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				213F6C591E22CCEA007A424A /* SlaveCollectionHeaderView.swift */,
+				213F6C4F1E21FA92007A424A /* SlaveTableviewCell.swift */,
+				213F6C511E21FAA8007A424A /* SlaveTableViewCellNoHint.swift */,
+				213F6C531E21FAB9007A424A /* SlaveCollectionViewCell.swift */,
+				213F6C551E21FAC6007A424A /* LargeSlaveCollectionViewCell.swift */,
+			);
+			name = CustomTableViewCell;
+			sourceTree = "<group>";
+		};
+		213F6C2E1E21F964007A424A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				213F6C3D1E21FA1D007A424A /* MasterTableViewController.swift */,
+				213F6C3F1E21FA28007A424A /* SlaveTableViewController.swift */,
+				213F6C411E21FA34007A424A /* SlaveCollectionViewController.swift */,
+				213F6C431E21FA3E007A424A /* TextTabBar.swift */,
+				213F6C451E21FA4B007A424A /* FullTextViewController.swift */,
+				213F6C471E21FA53007A424A /* FirstLetterViewController.swift */,
+				213F6C491E21FA65007A424A /* RandomWordViewController.swift */,
+				213F6C4B1E21FA70007A424A /* SectionViewController.swift */,
+				213F6C4D1E21FA87007A424A /* HelpTableViewController.swift */,
+				213F6C2D1E21F95A007A424A /* CustomTableViewCell */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		213F6C2F1E21F96F007A424A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				213F6C371E21F9C3007A424A /* Volume.swift */,
+				213F6C391E21F9C9007A424A /* Book.swift */,
+				213F6C3B1E21F9CD007A424A /* File.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		213F6C301E21F974007A424A /* ModelController */ = {
+			isa = PBXGroup;
+			children = (
+				213F6C351E21F9AB007A424A /* FileController.swift */,
+			);
+			name = ModelController;
+			sourceTree = "<group>";
+		};
+		213F6C311E21F97B007A424A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				213F6C331E21F994007A424A /* StringHelper.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		213F6C321E21F984007A424A /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				213F6C571E222A2C007A424A /* poemDB_v2.0.sql */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
 		219F6DA81E21F25F0051B16C = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +206,8 @@
 				219F6DC81E21F25F0051B16C /* ClassicPoetryTests */,
 				219F6DD31E21F25F0051B16C /* ClassicPoetryUITests */,
 				219F6DB21E21F25F0051B16C /* Products */,
+				B6308AD793898A5C28C5EB72 /* Pods */,
+				AEFB245943D37A9738F711BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +224,13 @@
 		219F6DB31E21F25F0051B16C /* ClassicPoetry */ = {
 			isa = PBXGroup;
 			children = (
-				219F6DB41E21F25F0051B16C /* AppDelegate.swift */,
-				219F6DB61E21F25F0051B16C /* ViewController.swift */,
-				219F6DB81E21F25F0051B16C /* Main.storyboard */,
-				219F6DBB1E21F25F0051B16C /* Assets.xcassets */,
-				219F6DBD1E21F25F0051B16C /* LaunchScreen.storyboard */,
-				219F6DC01E21F25F0051B16C /* Info.plist */,
+				213F6C321E21F984007A424A /* Database */,
+				213F6C311E21F97B007A424A /* Helpers */,
+				213F6C301E21F974007A424A /* ModelController */,
+				213F6C2F1E21F96F007A424A /* Model */,
+				213F6C2E1E21F964007A424A /* ViewController */,
+				213F6C2C1E21F954007A424A /* View */,
+				213F6C2B1E21F94E007A424A /* Other */,
 			);
 			path = ClassicPoetry;
 			sourceTree = "<group>";
@@ -125,6 +253,23 @@
 			path = ClassicPoetryUITests;
 			sourceTree = "<group>";
 		};
+		AEFB245943D37A9738F711BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95AEA0EDD443A53C446C2DC4 /* Pods_ClassicPoetry.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B6308AD793898A5C28C5EB72 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				06DB3859381F9D26FCDF8F29 /* Pods-ClassicPoetry.debug.xcconfig */,
+				D36E354BB6576C86D523885E /* Pods-ClassicPoetry.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +277,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 219F6DD91E21F25F0051B16C /* Build configuration list for PBXNativeTarget "ClassicPoetry" */;
 			buildPhases = (
+				9921AEA68D39B13D0530E1EF /* [CP] Check Pods Manifest.lock */,
 				219F6DAD1E21F25F0051B16C /* Sources */,
 				219F6DAE1E21F25F0051B16C /* Frameworks */,
 				219F6DAF1E21F25F0051B16C /* Resources */,
+				0803375E97451020BADA1E04 /* [CP] Embed Pods Frameworks */,
+				F21C275592675B44A8592DC7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -236,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				219F6DBF1E21F25F0051B16C /* LaunchScreen.storyboard in Resources */,
+				213F6C581E222A2C007A424A /* poemDB_v2.0.sql in Resources */,
 				219F6DBC1E21F25F0051B16C /* Assets.xcassets in Resources */,
 				219F6DBA1E21F25F0051B16C /* Main.storyboard in Resources */,
 			);
@@ -257,13 +406,79 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0803375E97451020BADA1E04 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClassicPoetry/Pods-ClassicPoetry-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9921AEA68D39B13D0530E1EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F21C275592675B44A8592DC7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClassicPoetry/Pods-ClassicPoetry-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		219F6DAD1E21F25F0051B16C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				219F6DB71E21F25F0051B16C /* ViewController.swift in Sources */,
+				213F6C441E21FA3E007A424A /* TextTabBar.swift in Sources */,
+				213F6C501E21FA92007A424A /* SlaveTableviewCell.swift in Sources */,
+				213F6C361E21F9AB007A424A /* FileController.swift in Sources */,
+				213F6C4E1E21FA87007A424A /* HelpTableViewController.swift in Sources */,
+				213F6C4C1E21FA70007A424A /* SectionViewController.swift in Sources */,
+				213F6C3C1E21F9CD007A424A /* File.swift in Sources */,
+				213F6C341E21F994007A424A /* StringHelper.swift in Sources */,
+				213F6C4A1E21FA65007A424A /* RandomWordViewController.swift in Sources */,
+				213F6C541E21FAB9007A424A /* SlaveCollectionViewCell.swift in Sources */,
+				213F6C5A1E22CCEA007A424A /* SlaveCollectionHeaderView.swift in Sources */,
+				213F6C401E21FA28007A424A /* SlaveTableViewController.swift in Sources */,
+				213F6C481E21FA53007A424A /* FirstLetterViewController.swift in Sources */,
 				219F6DB51E21F25F0051B16C /* AppDelegate.swift in Sources */,
+				213F6C521E21FAA8007A424A /* SlaveTableViewCellNoHint.swift in Sources */,
+				213F6C421E21FA34007A424A /* SlaveCollectionViewController.swift in Sources */,
+				213F6C3A1E21F9C9007A424A /* Book.swift in Sources */,
+				213F6C561E21FAC6007A424A /* LargeSlaveCollectionViewCell.swift in Sources */,
+				213F6C381E21F9C3007A424A /* Volume.swift in Sources */,
+				213F6C461E21FA4B007A424A /* FullTextViewController.swift in Sources */,
+				213F6C3E1E21FA1D007A424A /* MasterTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,10 +628,13 @@
 		};
 		219F6DDA1E21F25F0051B16C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06DB3859381F9D26FCDF8F29 /* Pods-ClassicPoetry.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = D8BVW7B3PF;
 				INFOPLIST_FILE = ClassicPoetry/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.precisioncodes.ClassicPoetry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -426,10 +644,13 @@
 		};
 		219F6DDB1E21F25F0051B16C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D36E354BB6576C86D523885E /* Pods-ClassicPoetry.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = D8BVW7B3PF;
 				INFOPLIST_FILE = ClassicPoetry/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.precisioncodes.ClassicPoetry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -514,6 +735,7 @@
 				219F6DDB1E21F25F0051B16C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		219F6DDC1E21F25F0051B16C /* Build configuration list for PBXNativeTarget "ClassicPoetryTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +744,7 @@
 				219F6DDE1E21F25F0051B16C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		219F6DDF1E21F25F0051B16C /* Build configuration list for PBXNativeTarget "ClassicPoetryUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +753,7 @@
 				219F6DE11E21F25F0051B16C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

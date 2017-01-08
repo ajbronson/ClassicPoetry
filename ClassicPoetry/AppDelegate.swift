@@ -15,32 +15,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        if UserDefaults.standard.value(forKey: FileController.Constant.fontSize) == nil {
+            UserDefaults.standard.set(100, forKey: FileController.Constant.fontSize)
+        }
+        let fileManager = FileManager.default
+        let documentsURL = try! FileManager().url(for: .documentDirectory,
+                                                  in: .userDomainMask,
+                                                  appropriateFor: nil,
+                                                  create: true)
+        let databasePath = documentsURL.appendingPathComponent("\(FileController.Constant.fileName).\(FileController.Constant.fileExtension)")
+        
+        if !FileManager().fileExists(atPath: databasePath.path) {
+            let location = Bundle.main.path(forResource: FileController.Constant.fileName, ofType: FileController.Constant.fileExtension)!
+            let newURL = documentsURL.appendingPathComponent(FileController.Constant.fileName).appendingPathExtension(FileController.Constant.fileExtension)
+            
+            if let databaseURL = URL(string: "file://\(location)") {
+                do {
+                    try fileManager.copyItem(at: databaseURL, to: newURL)
+                } catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            }
+            
+        }
+        
+        if let memorizedArray = UserDefaults.standard.array(forKey: "memorizedArray") {
+            for i in 0..<memorizedArray.count {
+                if let item = memorizedArray[i] as? String {
+                    if item == "1" {
+                        //GOLD_STAR
+                        FileController.shared.updateStarWithBookID(id: i, hasYellowStar: 1, hasBlueStar: 0, hasGreenStar: 0)
+                    } else if item == "2" {
+                        //BLUE_STAR
+                        FileController.shared.updateStarWithBookID(id: i, hasYellowStar: 0, hasBlueStar: 1, hasGreenStar: 0)
+                    } else if item == "3" {
+                        //GREEN_STAR
+                        FileController.shared.updateStarWithBookID(id: i, hasYellowStar: 0, hasBlueStar: 0, hasGreenStar: 1)
+                    }
+                }
+            }
+            UserDefaults.standard.removeObject(forKey: "memorizedArray")
+            UserDefaults.standard.synchronize()
+        }
         return true
     }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
 }
 
