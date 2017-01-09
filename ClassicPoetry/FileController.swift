@@ -127,4 +127,49 @@ class FileController {
             try? me?.execute()
         }
     }
+    
+    func getFirstLetterOfStringWithMultipleStrings(stringToUse: String, addNumberOfBreaks: Int) -> String {
+        var stringToReturn = ""
+        if var first = stringToUse.characters.first {
+            while first == "(" || first == "\"" || first == "'" {
+                let removeIndex = stringToUse.index(stringToUse.startIndex, offsetBy: 0)
+                var modifiedString = stringToUse
+                modifiedString.remove(at: removeIndex)
+                if let newFirst = modifiedString.characters.first {
+                    first = newFirst
+                }
+            }
+            
+            stringToReturn += "\(String(describing: first))"
+            stringToReturn += containsPunction(word: stringToUse)
+            for _ in 0..<addNumberOfBreaks {
+                stringToReturn += "<br> "
+            }
+        }
+        return stringToReturn
+    }
+    
+    func containsPunction(word: String) -> String {
+        if let character = word.characters.last {
+            if character == "," || character == "." || character == ":" || character == ";" || character == "!" || character == "?" {
+                return "\(String(character)) "
+            }
+        }
+        return " "
+
+    }
+    
+    func removeEmptyElementsFromArray(array: [String]) -> [String] {
+        var array = array
+        var indexToRemove: [Int] = []
+        for i in 0..<array.count {
+            if array[i] == "" {
+                indexToRemove.append(i)
+            }
+        }
+        for i in 0..<indexToRemove.count {
+            array.remove(at: (indexToRemove[i] - i))
+        }
+        return array
+    }
 }

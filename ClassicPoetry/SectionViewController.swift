@@ -16,6 +16,7 @@ class SectionViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var displayingLabel: UILabel!
     @IBOutlet weak var removeButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
+    
     var sections: [String] = []
     var displayingSections = 1
     var firstLetterOnly = false
@@ -51,7 +52,7 @@ class SectionViewController: UIViewController, UIWebViewDelegate {
                 stringToShow += "\(sections[i]) | "
             }
         }
-        let bookText = stringToShow.replacingOccurrences(of: "\n", with: "<br/>")
+        let bookText = stringToShow.replacingOccurrences(of: "\n", with: "<br>")
         sectionWebView.loadHTMLString(bookText, baseURL: nil)
     }
     

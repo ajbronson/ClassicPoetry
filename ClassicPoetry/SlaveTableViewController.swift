@@ -13,6 +13,7 @@ class SlaveTableViewController: UITableViewController, ChangeStar {
     var showHints = false
     var books: [Book]?
     var isInStarMode = false
+    var showHeader = false
     var starColor: Star.Color?
     var starCanonIDs:[Int] = []
     
@@ -25,7 +26,7 @@ class SlaveTableViewController: UITableViewController, ChangeStar {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if isInStarMode {
+        if isInStarMode || showHeader {
             return Array(Set(starCanonIDs)).count
         } else {
             return 1
@@ -33,7 +34,7 @@ class SlaveTableViewController: UITableViewController, ChangeStar {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isInStarMode {
+        if isInStarMode || showHeader  {
             var count = 0
             let singleCanonIDs = (Array(Set(starCanonIDs)))
             let sortedIDs = singleCanonIDs.sorted{$0 < $1}
@@ -51,7 +52,7 @@ class SlaveTableViewController: UITableViewController, ChangeStar {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if isInStarMode {
+        if isInStarMode || showHeader  {
             let singleCanonIDs = (Array(Set(starCanonIDs)))
             let sortedIDs = singleCanonIDs.sorted{$0 < $1}
             return FileController.shared.volumeNameForID(id: sortedIDs[section])
@@ -59,14 +60,19 @@ class SlaveTableViewController: UITableViewController, ChangeStar {
         return nil
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let textSize = UserDefaults.standard.integer(forKey: FileController.Constant.fontSize)
+        return CGFloat(textSize)/2.5
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let books = books else { return UITableViewCell() }
         
-        if isInStarMode {
+        if isInStarMode || showHeader  {
             let singleCanonIDs = (Array(Set(starCanonIDs)))
             let sortedIDs = singleCanonIDs.sorted{$0 < $1}
             let filteredBooks = books.filter({$0.canonID == sortedIDs[indexPath.section]})
-            if showHints {
+            if showHints && filteredBooks[indexPath.row].hint != "" {
                 if let cell = tableView.dequeueReusableCell(withIdentifier: "slaveCell") as? SlaveTableViewCell {
                     cell.updateWith(book: filteredBooks[indexPath.row], isInStarMode: isInStarMode)
                     cell.delegate = self
@@ -80,7 +86,7 @@ class SlaveTableViewController: UITableViewController, ChangeStar {
                 }
             }
         } else {
-            if showHints {
+            if showHints && books[indexPath.row].hint != "" {
                 if let cell = tableView.dequeueReusableCell(withIdentifier: "slaveCell") as? SlaveTableViewCell {
                     cell.updateWith(book: books[indexPath.row], isInStarMode: isInStarMode)
                     cell.delegate = self
@@ -97,10 +103,14 @@ class SlaveTableViewController: UITableViewController, ChangeStar {
         return UITableViewCell()
     }
     
-    func updateSlave(volume: Volume) {
+    func updateSlave(volume: Volume, showHeader: Bool) {
         self.title = volume.name
         self.books = FileController.shared.book(volumeID: volume.id)
         isInStarMode = false
+        self.showHeader = showHeader
+        if showHeader {
+            organizeBooks()
+        }
     }
     
     func updateSlaveFromStar(books: [Book], title: String, starColor: Star.Color) {
@@ -168,7 +178,7 @@ class SlaveTableViewController: UITableViewController, ChangeStar {
             if let tabController = segue.destination as? TextTabBar,
                 let indexPath = tableView.indexPathForSelectedRow,
                 let books = books {
-                if isInStarMode {
+                if isInStarMode || showHeader  {
                     let singleCanonIDs = (Array(Set(starCanonIDs)))
                     let sortedIDs = singleCanonIDs.sorted{$0 < $1}
                     let filteredBooks = books.filter({$0.canonID == sortedIDs[indexPath.section]})
@@ -180,13 +190,13 @@ class SlaveTableViewController: UITableViewController, ChangeStar {
         } else if segue.identifier == "toCollectionView" {
             if let collectionVC = segue.destination as? SlaveCollectionViewController,
                 let books = books {
-                collectionVC.updateWith(books: books, title: self.title, starMode: isInStarMode)
+                collectionVC.updateWith(books: books, title: self.title, starMode: isInStarMode, showHeader: showHeader)
             }
         }
     }
     
     @IBAction func hintButtonTapped(_ sender: UIBarButtonItem) {
-        sender.title = showHints ? "Show Hints" : "Hide Hints"
+        sender.title = showHints ? "Show Year" : "Hide Year"
         showHints = !showHints
         tableView.reloadData()
     }

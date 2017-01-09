@@ -23,5 +23,9 @@ class SlaveCollectionViewCell: UICollectionViewCell {
         } else {
             titleLabel.text = book.text
         }
+        
+        let textSize = UserDefaults.standard.integer(forKey: FileController.Constant.fontSize)
+        titleLabel.font = UIFont.systemFont(ofSize: CGFloat(textSize)/6.2)
+        subtitleLabel.font = UIFont.systemFont(ofSize: CGFloat(textSize)/10)
     }
 }

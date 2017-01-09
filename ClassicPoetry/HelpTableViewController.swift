@@ -17,7 +17,6 @@ class HelpTableViewController: UITableViewController, UIWebViewDelegate {
     @IBOutlet weak var fontWebView: UIWebView!
     @IBOutlet weak var fontTextField: UITextField!
     @IBOutlet weak var fontStepper: UIStepper!
-    @IBOutlet weak var scriptureMasteryImage: UIImageView!
     
     //MARK: - Properties
     
@@ -28,13 +27,11 @@ class HelpTableViewController: UITableViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         let value = UserDefaults.standard.integer(forKey: FileController.Constant.fontSize)
-        fontStepper.minimumValue = 50
-        fontStepper.maximumValue = 300
+        fontStepper.minimumValue = 80
+        fontStepper.maximumValue = 200
         fontStepper.stepValue = 10.0
         fontStepper.value = Double(value)
         fontTextField.text = "\(value)"
-        scriptureMasteryImage.layer.cornerRadius = 10
-        scriptureMasteryImage.clipsToBounds = true
         updateWebView()
     }
     
@@ -87,12 +84,5 @@ class HelpTableViewController: UITableViewController, UIWebViewDelegate {
         UserDefaults.standard.set(Int(sender.value), forKey: FileController.Constant.fontSize)
         fontTextField.text = "\(Int(sender.value))"
         updateWebView()
-    }
-    
-    @IBAction func scriptureMasteryTapped(_ sender: UITapGestureRecognizer) {
-        if let url = URL(string: "https://itunes.apple.com/us/app/lds-memory-scripture-mastery/id389594409?mt=8") {
-            UIApplication.shared.openURL(url)
-        }
-        
     }
 }

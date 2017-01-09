@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--LDS Memory-->
+        <!--Classic Poetry-->
         <scene sceneID="kVR-v4-9qy">
             <objects>
                 <tableViewController id="2US-i5-1ue" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="separatorColor" red="0.86365655640000005" green="0.61100430459999999" blue="0.60539956920000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.86365655640000005" green="0.82418048761873264" blue="0.24629770494151587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="launchCell" id="f73-K1-LqG">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -33,7 +33,7 @@
                             <outlet property="delegate" destination="2US-i5-1ue" id="1Gb-Bb-cef"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="LDS Memory" id="SBY-eQ-Ga7"/>
+                    <navigationItem key="navigationItem" title="Classic Poetry" id="SBY-eQ-Ga7"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kYA-yR-UQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -47,7 +47,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ODD-eQ-qm3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.86365655640000005" green="0.61100430459999999" blue="0.60539956920000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.8496301745" green="0.86365655640000005" blue="0.58902762580000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

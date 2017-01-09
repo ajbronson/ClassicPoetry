@@ -16,7 +16,6 @@ class FirstLetterViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var removeButton: UIButton!
     
-    
     var firstLetterText: String = ""
     var currentText: [String] = ["", ""]
     var indexesRemoved:[Int] = []
@@ -38,7 +37,8 @@ class FirstLetterViewController: UIViewController, UIWebViewDelegate {
             self.books = books
             self.tabBarController?.title = book.reference
             firstLetterText = book.text.setFirstLetters()
-            currentText = firstLetterText.getStringArray()
+            let arrayText = firstLetterText.getStringArray()
+            currentText = FileController.shared.removeEmptyElementsFromArray(array: arrayText)
             reloadHTML()
         }
     }
@@ -49,12 +49,11 @@ class FirstLetterViewController: UIViewController, UIWebViewDelegate {
     }
     
     func reloadHTML() {
-        let bookText = currentText.joined(separator: " ").replacingOccurrences(of: "\n", with: "<br/>")
+        let bookText = currentText.joined(separator: " ").replacingOccurrences(of: "\n", with: "<br>")
         wordWebView.loadHTMLString(bookText, baseURL: nil)
     }
     
-    func removeElements() {
-        let count = Int(letterSlider.value)
+    func removeElements(count: Int) {
         for _ in 0..<count {
             
             if currentText.count == indexesRemoved.count {
@@ -67,8 +66,12 @@ class FirstLetterViewController: UIViewController, UIWebViewDelegate {
                 random = Int(arc4random_uniform(UInt32(currentText.count)))
             }
             
-            currentText[random] = "__"
             indexesRemoved.append(random)
+            if currentText[random] == "<br>" {
+                removeElements(count: 1)
+            } else {
+               currentText[random] = "_"
+            }
         }
     }
     
@@ -76,10 +79,13 @@ class FirstLetterViewController: UIViewController, UIWebViewDelegate {
         if let book = book {
             self.tabBarController?.title = book.reference
             firstLetterText = book.text.setFirstLetters()
-            currentText = firstLetterText.getStringArray()
+            let arrayText = firstLetterText.getStringArray()
+            currentText = FileController.shared.removeEmptyElementsFromArray(array: arrayText)
             reloadHTML()
         }
     }
+    
+
     
     @IBAction func letterSliderDidChange(_ sender: UISlider) {
         let value: Int = Int(letterSlider.value)
@@ -88,12 +94,13 @@ class FirstLetterViewController: UIViewController, UIWebViewDelegate {
     
     @IBAction func resetButtonTapped(_ sender: UIButton) {
         indexesRemoved = []
-        currentText = firstLetterText.getStringArray()
+        let arrayText = firstLetterText.getStringArray()
+        currentText = FileController.shared.removeEmptyElementsFromArray(array: arrayText)
         reloadHTML()
     }
     
     @IBAction func removeButtonTapped(_ sender: UIButton) {
-        removeElements()
+        removeElements(count: Int(letterSlider.value))
         reloadHTML()
     }
     

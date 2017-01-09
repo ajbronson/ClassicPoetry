@@ -36,7 +36,7 @@ class FullTextViewController: UIViewController, UIWebViewDelegate {
             self.book = book
             self.books = books
             self.tabBarController?.title = book.reference
-            let bookText = book.text.replacingOccurrences(of: "\n", with: "<br/>")
+            let bookText = book.text.replacingOccurrences(of: "\n", with: "<br>")
             wordWebView.loadHTMLString(bookText, baseURL: nil)
         }
         
@@ -114,7 +114,7 @@ class FullTextViewController: UIViewController, UIWebViewDelegate {
     func bookDidChange() {
         if let book = book {
             self.tabBarController?.title = book.reference
-            let bookText = book.text.replacingOccurrences(of: "\n", with: "<br/>")
+            let bookText = book.text.replacingOccurrences(of: "\n", with: "<br>")
             wordWebView.loadHTMLString(bookText, baseURL: nil)
         }
     }

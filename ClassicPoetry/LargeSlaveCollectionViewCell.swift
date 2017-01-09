@@ -19,7 +19,8 @@ class LargeSlaveCollectionViewCell: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         largeView.layer.cornerRadius = 5
         if let book = book {
-            largeWebView.loadHTMLString(book.text, baseURL: nil)
+            let bookText = book.text.replacingOccurrences(of: "\n", with: "<br/>")
+            largeWebView.loadHTMLString(bookText, baseURL: nil)
             titleLabel.text = book.reference
         }
         

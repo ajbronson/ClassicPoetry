@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         if UserDefaults.standard.value(forKey: FileController.Constant.fontSize) == nil {
-            UserDefaults.standard.set(100, forKey: FileController.Constant.fontSize)
+            UserDefaults.standard.set(120, forKey: FileController.Constant.fontSize)
         }
         let fileManager = FileManager.default
         let documentsURL = try! FileManager().url(for: .documentDirectory,

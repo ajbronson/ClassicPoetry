@@ -51,7 +51,7 @@ class MasterTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Categories"
+            return "Authors"
         case 1:
             return "Stars"
         default:
@@ -89,15 +89,24 @@ class MasterTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let textSize = UserDefaults.standard.integer(forKey: FileController.Constant.fontSize)
+        return CGFloat(textSize)/2.5
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "masterCell") else { return UITableViewCell() }
             cell.textLabel?.text = volumes?[indexPath.row].name
+            let textSize = UserDefaults.standard.integer(forKey: FileController.Constant.fontSize)
+            cell.textLabel?.font = UIFont.systemFont(ofSize: CGFloat(textSize)/6.2)
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "masterCell") else { return UITableViewCell() }
             cell.textLabel?.text = getStar(row: indexPath.row).0
+            let textSize = UserDefaults.standard.integer(forKey: FileController.Constant.fontSize)
+            cell.textLabel?.font = UIFont.systemFont(ofSize: CGFloat(textSize)/6.2)
             return cell
         default:
             return UITableViewCell()
@@ -110,7 +119,7 @@ class MasterTableViewController: UITableViewController {
                 let volumes = volumes,
                 let destinationVC = segue.destination as? SlaveTableViewController {
                 if index.section == 0 {
-                    destinationVC.updateSlave(volume: volumes[index.row])
+                    destinationVC.updateSlave(volume: volumes[index.row], showHeader: index.row == 0 ? true : false)
                 } else if index.section == 1 {
                     let starToPass = getStar(row: index.row)
                     if let books = starToPass.1 {
