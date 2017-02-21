@@ -10,6 +10,8 @@ import UIKit
 
 class SlaveTableViewController: UITableViewController, ChangeStar {
     
+    //MARK: - Properties
+    
     var showHints = false
     var books: [Book]?
     var isInStarMode = false
@@ -17,13 +19,18 @@ class SlaveTableViewController: UITableViewController, ChangeStar {
     var starColor: Star.Color?
     var starCanonIDs:[Int] = []
     
+    //MARK: - View Controller Lifecycle
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.toolbar.isHidden = false
+        
         if books?.count == 0 {
             _ = navigationController?.popViewController(animated: true)
         }
     }
+    
+    //MARK: - TableView Methods
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         if isInStarMode || showHeader {
@@ -57,6 +64,7 @@ class SlaveTableViewController: UITableViewController, ChangeStar {
             let sortedIDs = singleCanonIDs.sorted{$0 < $1}
             return FileController.shared.volumeNameForID(id: sortedIDs[section])
         }
+        
         return nil
     }
     
@@ -103,11 +111,14 @@ class SlaveTableViewController: UITableViewController, ChangeStar {
         return UITableViewCell()
     }
     
+    //MARK: - Helper Methods
+    
     func updateSlave(volume: Volume, showHeader: Bool) {
         self.title = volume.name
         self.books = FileController.shared.book(volumeID: volume.id)
         isInStarMode = false
         self.showHeader = showHeader
+        
         if showHeader {
             organizeBooks()
         }
@@ -129,6 +140,7 @@ class SlaveTableViewController: UITableViewController, ChangeStar {
                 let sortedIDs = singleCanonIDs.sorted{$0 < $1}
                 let filteredBooks = books.filter({$0.canonID == sortedIDs[indexPath.section]})
                 let book = filteredBooks[indexPath.row]
+                
                 if let indexPathToRemove = books.index(of: book) {
                     self.books?.remove(at: indexPathToRemove)
                     organizeBooks()
@@ -142,6 +154,7 @@ class SlaveTableViewController: UITableViewController, ChangeStar {
                     }
                     
                     tableView.endUpdates()
+                    
                     if self.books?.count == 0 {
                         DispatchQueue.global().async {
                             sleep(1)
@@ -162,6 +175,7 @@ class SlaveTableViewController: UITableViewController, ChangeStar {
             shouldRemove {
             self.books?.remove(at: index)
         }
+        
         organizeBooks()
         tableView.reloadData()
     }
@@ -172,6 +186,8 @@ class SlaveTableViewController: UITableViewController, ChangeStar {
         self.books = sortedBooks
         starCanonIDs = sortedBooks.flatMap({$0.canonID})
     }
+    
+    //MARK: - Prepare for Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toTabBar" {
@@ -195,12 +211,22 @@ class SlaveTableViewController: UITableViewController, ChangeStar {
         }
     }
     
+    //MARK: - Actions
+    
     @IBAction func hintButtonTapped(_ sender: UIBarButtonItem) {
+        if let id = UIDevice.current.identifierForVendor?.uuidString {
+            Flurry.logEvent("Show Hint Tapped", withParameters: ["Unique ID" : id])
+        } else {
+            Flurry.logEvent("Show Hint Tapped", withParameters: ["Unique ID" : "Unknown"])
+        }
+        
         sender.title = showHints ? "Show Year" : "Hide Year"
         showHints = !showHints
         tableView.reloadData()
     }
 }
+
+//MARK: - Protocol
 
 protocol ChangeStar {
     func shouldChangeStar(sender: UITableViewCell, starMode: Bool)

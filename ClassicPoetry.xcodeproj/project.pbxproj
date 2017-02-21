@@ -33,6 +33,9 @@
 		219F6DBF1E21F25F0051B16C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 219F6DBD1E21F25F0051B16C /* LaunchScreen.storyboard */; };
 		219F6DCA1E21F25F0051B16C /* ClassicPoetryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219F6DC91E21F25F0051B16C /* ClassicPoetryTests.swift */; };
 		219F6DD51E21F25F0051B16C /* ClassicPoetryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219F6DD41E21F25F0051B16C /* ClassicPoetryUITests.swift */; };
+		21F74C901E5155AD0089928B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F74C8F1E5155AD0089928B /* Security.framework */; };
+		21F74C921E5155B20089928B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F74C911E5155B20089928B /* SystemConfiguration.framework */; };
+		21F74C971E51563E0089928B /* libFlurry_7.9.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F74C961E51563E0089928B /* libFlurry_7.9.2.a */; };
 		E5ACDBEB1CAC10B564A70F6D /* Pods_ClassicPoetry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95AEA0EDD443A53C446C2DC4 /* Pods_ClassicPoetry.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +90,12 @@
 		219F6DD01E21F25F0051B16C /* ClassicPoetryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassicPoetryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		219F6DD41E21F25F0051B16C /* ClassicPoetryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicPoetryUITests.swift; sourceTree = "<group>"; };
 		219F6DD61E21F25F0051B16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21F74C8F1E5155AD0089928B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		21F74C911E5155B20089928B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		21F74C941E51563E0089928B /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		21F74C951E51563E0089928B /* FlurrySessionBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurrySessionBuilder.h; sourceTree = "<group>"; };
+		21F74C961E51563E0089928B /* libFlurry_7.9.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_7.9.2.a; sourceTree = "<group>"; };
+		21F74C981E5156B40089928B /* Poetry-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Poetry-Bridging-Header.h"; sourceTree = "<group>"; };
 		95AEA0EDD443A53C446C2DC4 /* Pods_ClassicPoetry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClassicPoetry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36E354BB6576C86D523885E /* Pods-ClassicPoetry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassicPoetry.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassicPoetry/Pods-ClassicPoetry.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +105,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21F74C971E51563E0089928B /* libFlurry_7.9.2.a in Frameworks */,
+				21F74C921E5155B20089928B /* SystemConfiguration.framework in Frameworks */,
+				21F74C901E5155AD0089928B /* Security.framework in Frameworks */,
 				E5ACDBEB1CAC10B564A70F6D /* Pods_ClassicPoetry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +236,7 @@
 		219F6DB31E21F25F0051B16C /* ClassicPoetry */ = {
 			isa = PBXGroup;
 			children = (
+				21F74C9A1E51695F0089928B /* Flurry */,
 				213F6C321E21F984007A424A /* Database */,
 				213F6C311E21F97B007A424A /* Helpers */,
 				213F6C301E21F974007A424A /* ModelController */,
@@ -253,9 +266,22 @@
 			path = ClassicPoetryUITests;
 			sourceTree = "<group>";
 		};
+		21F74C9A1E51695F0089928B /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				21F74C941E51563E0089928B /* Flurry.h */,
+				21F74C951E51563E0089928B /* FlurrySessionBuilder.h */,
+				21F74C961E51563E0089928B /* libFlurry_7.9.2.a */,
+				21F74C981E5156B40089928B /* Poetry-Bridging-Header.h */,
+			);
+			name = Flurry;
+			sourceTree = "<group>";
+		};
 		AEFB245943D37A9738F711BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				21F74C911E5155B20089928B /* SystemConfiguration.framework */,
+				21F74C8F1E5155AD0089928B /* Security.framework */,
 				95AEA0EDD443A53C446C2DC4 /* Pods_ClassicPoetry.framework */,
 			);
 			name = Frameworks;
@@ -636,9 +662,15 @@
 				INFOPLIST_FILE = ClassicPoetry/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.precisioncodes.ClassicPoetry;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ClassicPoetry",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ldsmemory.poemsapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ClassicPoetry/Poetry-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -652,9 +684,15 @@
 				INFOPLIST_FILE = ClassicPoetry/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.precisioncodes.ClassicPoetry;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ClassicPoetry",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ldsmemory.poemsapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ClassicPoetry/Poetry-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

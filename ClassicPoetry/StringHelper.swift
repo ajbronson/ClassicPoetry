@@ -9,6 +9,9 @@
 import Foundation
 
 extension String {
+    
+    //MARK: = Helper Methods of the String Extension
+    
     func getStringArray() -> [String] {
         return self.components(separatedBy: " ")
     }
@@ -16,9 +19,15 @@ extension String {
     func setFirstLetters() -> String {
         var stringToReturn = ""
         let newString = self.replacingOccurrences(of: "\n", with: "<br>")
+        
         for string in newString.getStringArray() {
             var stringToUse = string
             var addNumberOfBreaks = 0
+            
+            if string.contains("young") {
+                let _ = 0 //remove this
+            }
+            
             if stringToUse == "<br>" {
                 stringToReturn += "<br> "
                 continue
@@ -34,6 +43,7 @@ extension String {
                         }
                         else {
                             let separatedStrings = stringToUse.components(separatedBy: "<br>")
+                            
                             for i in 0..<(separatedStrings.count) {
                                 if separatedStrings[i] == "" {
                                     stringToReturn += "<br> "
@@ -45,12 +55,13 @@ extension String {
                                     }
                                 }
                             }
+                            
                             break
                         }
                     }
                 }
             } else {
-              stringToReturn += FileController.shared.getFirstLetterOfStringWithMultipleStrings(stringToUse: stringToUse, addNumberOfBreaks: addNumberOfBreaks)
+                stringToReturn += FileController.shared.getFirstLetterOfStringWithMultipleStrings(stringToUse: stringToUse, addNumberOfBreaks: addNumberOfBreaks)
             }
         }
         
@@ -65,6 +76,7 @@ extension String {
         
         for i in 0..<stringArray.count {
             let currentString = stringArray[i]
+            
             if currentString == "" || currentString == " " {
                 positionsToRemove.append(i)
             }
@@ -77,8 +89,10 @@ extension String {
         
         for i in 0..<stringArray.count {
             var currentString = stringArray[i]
+            
             if i != stringArray.count - 1 {
                 let nextString = stringArray[i + 1]
+                
                 if let last = currentString.characters.last,
                     let first = nextString.characters.first {
                     if last != " " && first != " " {
@@ -91,3 +105,4 @@ extension String {
         return stringArray
     }
 }
+

@@ -10,20 +10,18 @@ import UIKit
 
 class SlaveCollectionViewCell: UICollectionViewCell {
     
+    //MARK: - Outlets
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var customView: UIView!
-    var faceUp = true
+    
+    //MARK: - Helper Methods
     
     func updateWith(book: Book, showHints: Bool) {
-        if faceUp {
-            titleLabel.text = book.reference
-            subtitleLabel.text = showHints ? book.hint : ""
-            customView.layer.cornerRadius = 5
-        } else {
-            titleLabel.text = book.text
-        }
-        
+        titleLabel.text = book.reference
+        subtitleLabel.text = showHints ? book.hint : ""
+        customView.layer.cornerRadius = 5
         let textSize = UserDefaults.standard.integer(forKey: FileController.Constant.fontSize)
         titleLabel.font = UIFont.systemFont(ofSize: CGFloat(textSize)/6.2)
         subtitleLabel.font = UIFont.systemFont(ofSize: CGFloat(textSize)/10)

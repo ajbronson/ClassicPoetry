@@ -35,15 +35,17 @@ class HelpTableViewController: UITableViewController, UIWebViewDelegate {
         updateWebView()
     }
     
-    //MARK: - Helper Functions
-    
-    func updateWebView() {
-        fontWebView.loadHTMLString("Example Font Size", baseURL: nil)
-    }
+    //MARK: - WebView Delegate Method
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         let textSize = UserDefaults.standard.integer(forKey: FileController.Constant.fontSize)
         fontWebView.stringByEvaluatingJavaScript(from: "document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '\(textSize)%%'")
+    }
+    
+    //MARK: - Helper Functions
+    
+    func updateWebView() {
+        fontWebView.loadHTMLString("Example Font Size", baseURL: nil)
     }
     
     //MARK: - Actions
@@ -65,6 +67,12 @@ class HelpTableViewController: UITableViewController, UIWebViewDelegate {
     }
     
     @IBAction func emailButtonTapped(_ sender: UIButton) {
+        if let id = UIDevice.current.identifierForVendor?.uuidString {
+            Flurry.logEvent("Email Button Tapped", withParameters: ["Unique ID" : id])
+        } else {
+            Flurry.logEvent("Email Button Tapped", withParameters: ["Unique ID" : "Unknown"])
+        }
+        
         if let url = URL(string: "mailto://ldsmemory.scripturemasteryapp@gmail.com") {
             UIApplication.shared.openURL(url)
         }
@@ -81,6 +89,12 @@ class HelpTableViewController: UITableViewController, UIWebViewDelegate {
     }
     
     @IBAction func fontStepperTapped(_ sender: UIStepper) {
+        if let id = UIDevice.current.identifierForVendor?.uuidString {
+            Flurry.logEvent("Font Changed", withParameters: ["Unique ID" : id, "Value" : sender.value])
+        } else {
+            Flurry.logEvent("Font Changed", withParameters: ["Unique ID" : "Unknown", "Value" : sender.value])
+        }
+        
         UserDefaults.standard.set(Int(sender.value), forKey: FileController.Constant.fontSize)
         fontTextField.text = "\(Int(sender.value))"
         updateWebView()

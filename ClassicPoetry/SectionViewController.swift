@@ -10,12 +10,14 @@ import UIKit
 
 class SectionViewController: UIViewController, UIWebViewDelegate {
     
-    //MARK: - Properties
+    //MARK: - Outlets
     
     @IBOutlet weak var sectionWebView: UIWebView!
     @IBOutlet weak var displayingLabel: UILabel!
     @IBOutlet weak var removeButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
+    
+    //MARK: - Properties
     
     var sections: [String] = []
     var displayingSections = 1
@@ -29,6 +31,7 @@ class SectionViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         removeButton.layer.cornerRadius = 5
         addButton.layer.cornerRadius = 5
+        
         if let parentVC = parent as? TextTabBar,
             let book = parentVC.book,
             let books = parentVC.books {
@@ -41,20 +44,7 @@ class SectionViewController: UIViewController, UIWebViewDelegate {
         }
     }
     
-    //MARK: - Helper Methods
-    
-    func reloadHTML() {
-        var stringToShow = ""
-        for i in 0..<displayingSections {
-            if firstLetterOnly && i != displayingSections - 1 {
-                stringToShow += "\(sections[i].setFirstLetters()) | "
-            } else {
-                stringToShow += "\(sections[i]) | "
-            }
-        }
-        let bookText = stringToShow.replacingOccurrences(of: "\n", with: "<br>")
-        sectionWebView.loadHTMLString(bookText, baseURL: nil)
-    }
+    //MARK: - WebView Delegate Method
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         let textSize = UserDefaults.standard.integer(forKey: FileController.Constant.fontSize)
@@ -65,6 +55,23 @@ class SectionViewController: UIViewController, UIWebViewDelegate {
             let script = "scrollTo(1, \(height))"
             sectionWebView.stringByEvaluatingJavaScript(from: script)
         }
+    }
+    
+    //MARK: - Helper Methods
+    
+    func reloadHTML() {
+        var stringToShow = ""
+        
+        for i in 0..<displayingSections {
+            if firstLetterOnly && i != displayingSections - 1 {
+                stringToShow += "\(sections[i].setFirstLetters()) | "
+            } else {
+                stringToShow += "\(sections[i]) | "
+            }
+        }
+        
+        let bookText = stringToShow.replacingOccurrences(of: "\n", with: "<br>")
+        sectionWebView.loadHTMLString(bookText, baseURL: nil)
     }
     
     func updateDisplaying() {
@@ -84,6 +91,12 @@ class SectionViewController: UIViewController, UIWebViewDelegate {
     //MARK: - Actions
     
     @IBAction func removeSectionButtonTapped(_ sender: UIButton) {
+        if let id = UIDevice.current.identifierForVendor?.uuidString {
+            Flurry.logEvent("Section Removed", withParameters: ["Unique ID" : id])
+        } else {
+            Flurry.logEvent("Section Removed", withParameters: ["Unique ID" : "Unknown"])
+        }
+        
         if displayingSections > 0 {
             displayingSections -= 1
             reloadHTML()
@@ -92,6 +105,12 @@ class SectionViewController: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func addSectionButtonTapped(_ sender: UIButton) {
+        if let id = UIDevice.current.identifierForVendor?.uuidString {
+            Flurry.logEvent("Section Added", withParameters: ["Unique ID" : id])
+        } else {
+            Flurry.logEvent("Section Added", withParameters: ["Unique ID" : "Unknown"])
+        }
+        
         if displayingSections < sections.count {
             displayingSections += 1
             reloadHTML()
@@ -100,6 +119,12 @@ class SectionViewController: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func firstLetterToggled(_ sender: UISwitch) {
+        if let id = UIDevice.current.identifierForVendor?.uuidString {
+            Flurry.logEvent("First Letter In Section Toggled", withParameters: ["Unique ID" : id])
+        } else {
+            Flurry.logEvent("First Letter In Section Toggled", withParameters: ["Unique ID" : "Unknown"])
+        }
+        
         firstLetterOnly = sender.isOn
         reloadHTML()
     }
@@ -119,5 +144,4 @@ class SectionViewController: UIViewController, UIWebViewDelegate {
             }
         }
     }
-    
 }

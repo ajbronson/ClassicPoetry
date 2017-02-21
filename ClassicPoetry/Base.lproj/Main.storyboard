@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wJ8-Ax-oCi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wJ8-Ax-oCi">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -570,6 +570,7 @@
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="bZi-eP-GHZ"/>
                         <barButtonItem title="To Flashcard Mode" id="ZCc-2e-Vs9">
+                            <color key="tintColor" red="0.047058823530000002" green="0.23921568630000001" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="Kys-fk-BzK" kind="show" identifier="toCollectionView" id="dEr-F8-Kp2">
                                     <nil key="action"/>
@@ -686,6 +687,7 @@
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="P8a-vj-Nd3"/>
                         <barButtonItem title="To List Mode" id="B4a-aq-YaR">
+                            <color key="tintColor" red="0.047058823530000002" green="0.23921568630000001" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="toListModeButtonTapped:" destination="Kys-fk-BzK" id="8Iq-x0-0xN"/>
                             </connections>
@@ -712,7 +714,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dgF-hW-RYx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.8496301745" green="0.86365655640000005" blue="0.58902762580000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.047058823530000002" green="0.23921568630000001" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.85098039215686272" green="0.86274509803921573" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="pTB-6e-wu7">
                         <rect key="frame" x="0.0" y="623" width="375" height="44"/>
@@ -1055,16 +1058,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ZUC-UT-7xb">
-                                <rect key="frame" x="16" y="89" width="343" height="132"/>
+                                <rect key="frame" x="16" y="89" width="343" height="131.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Displaying Sections 3 of 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCe-Tw-aT8">
-                                        <rect key="frame" x="72" y="0.0" width="200" height="21"/>
+                                        <rect key="frame" x="72" y="0.0" width="199.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="N5I-vb-SW6">
-                                        <rect key="frame" x="18" y="46" width="307" height="31"/>
+                                        <rect key="frame" x="18.5" y="45.5" width="306.5" height="31"/>
                                         <subviews>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wkb-5H-Kn9">
                                                 <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
@@ -1073,7 +1076,7 @@
                                                 </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only Display First Letters of Previous Sections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pko-zw-d67">
-                                                <rect key="frame" x="64" y="0.0" width="243" height="31"/>
+                                                <rect key="frame" x="64" y="0.0" width="242.5" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1081,7 +1084,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="4te-YW-L7e">
-                                        <rect key="frame" x="17" y="102" width="310" height="30"/>
+                                        <rect key="frame" x="16.5" y="101.5" width="310" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mz3-IJ-RBL">
                                                 <rect key="frame" x="0.0" y="0.0" width="130" height="30"/>
@@ -1111,7 +1114,7 @@
                                 </subviews>
                             </stackView>
                             <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSk-if-INz">
-                                <rect key="frame" x="16" y="251" width="343" height="357"/>
+                                <rect key="frame" x="16" y="250.5" width="343" height="357.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="ona-YI-SZE" id="4sU-5E-RHF"/>

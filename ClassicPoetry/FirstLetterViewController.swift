@@ -10,11 +10,15 @@ import UIKit
 
 class FirstLetterViewController: UIViewController, UIWebViewDelegate {
     
+    //MARK: - Outlets
+    
     @IBOutlet weak var wordWebView: UIWebView!
     @IBOutlet weak var letterTextField: UITextField!
     @IBOutlet weak var letterSlider: UISlider!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var removeButton: UIButton!
+    
+    //MARK: - Properties
     
     var firstLetterText: String = ""
     var currentText: [String] = ["", ""]
@@ -30,6 +34,7 @@ class FirstLetterViewController: UIViewController, UIWebViewDelegate {
         letterTextField.text = "5"
         removeButton.layer.cornerRadius = 5
         resetButton.layer.cornerRadius = 5
+        
         if let parentVC = parent as? TextTabBar,
             let book = parentVC.book,
             let books = parentVC.books {
@@ -43,10 +48,14 @@ class FirstLetterViewController: UIViewController, UIWebViewDelegate {
         }
     }
     
+    //MARK: - WebView Delegate Method
+    
     func webViewDidFinishLoad(_ webView: UIWebView) {
         let textSize = UserDefaults.standard.integer(forKey: FileController.Constant.fontSize)
         wordWebView.stringByEvaluatingJavaScript(from: "document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '\(textSize)%%'")
     }
+    
+    //MARK: - Helper Methods
     
     func reloadHTML() {
         let bookText = currentText.joined(separator: " ").replacingOccurrences(of: "\n", with: "<br>")
@@ -67,6 +76,7 @@ class FirstLetterViewController: UIViewController, UIWebViewDelegate {
             }
             
             indexesRemoved.append(random)
+            
             if currentText[random] == "<br>" {
                 removeElements(count: 1)
             } else {
@@ -85,7 +95,7 @@ class FirstLetterViewController: UIViewController, UIWebViewDelegate {
         }
     }
     
-
+    //MARK: - Actions
     
     @IBAction func letterSliderDidChange(_ sender: UISlider) {
         let value: Int = Int(letterSlider.value)
@@ -100,6 +110,12 @@ class FirstLetterViewController: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func removeButtonTapped(_ sender: UIButton) {
+        if let id = UIDevice.current.identifierForVendor?.uuidString {
+            Flurry.logEvent("First Letter Removed", withParameters: ["Unique ID" : id])
+        } else {
+            Flurry.logEvent("First Letter Removed", withParameters: ["Unique ID" : "Unknown"])
+        }
+        
         removeElements(count: Int(letterSlider.value))
         reloadHTML()
     }

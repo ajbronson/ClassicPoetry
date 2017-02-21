@@ -10,8 +10,13 @@ import Foundation
 import GRDB
 
 class Volume {
+    
+    //MARK: - Properties
+    
     let id: Int
     let name: String
+    
+    //MARK: - Initializers
     
     init(row: Row) {
         id = row.value(named: "id")
